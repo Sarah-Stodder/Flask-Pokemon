@@ -1,0 +1,13 @@
+.icon{
+
+    border-radius: 8px;
+    padding: 5px;
+    width: 50px;
+}
+.icon:hover{
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.5);
+}
+body{
+    background-image: url("https://res.cloudinary.com/dxfkurrkj/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1659396594/background_s6kbys.png");
+    object-fit: cover;
+}
