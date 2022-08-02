@@ -3,9 +3,9 @@ import requests
 from app import app
 from app.forms import CatchPokemon
 
-@app.route('/', methods=['GET'])
-def index():
-    return render_template('index.html.j2')
+@app.route('/home', methods=['GET'])
+def home():
+    return render_template('home.html.j2')
 
 
 @app.route('/pokemon', methods=['GET', 'POST'])
