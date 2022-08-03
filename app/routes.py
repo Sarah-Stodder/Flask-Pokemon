@@ -28,7 +28,7 @@ def pokemon():
             poke_dict={
                 "name": data['name'].title(),
                 "ability":data['abilities'][0]["ability"]["name"],
-                "base experiance":data['base_experience'],
+                "base exerience":data['base_experience'],
                 "photo":data['sprites']['other']['home']["front_default"],
                 "attack base stat": data['stats'][1]['base_stat'],
                 "hp base stat":data['stats'][0]['base_stat'],

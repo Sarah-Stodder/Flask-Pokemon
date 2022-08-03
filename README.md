@@ -9,6 +9,11 @@ The welcome page I kept simple for now...
 
 ### Executing program
 To run this program you need to downlaod all of the requirements, which can be found in the requirments.txt document.
-From there you will need to have a SECRECT KEY and set your flask enviorment to "development" as the application isnt ready for launch yet!
+Your ENV file should contian the following environment variables:
+FLASK_APP  
+FLASK_ENV  
+SECRET_KEY  
+SQLALCHEMY_DATABASE_URI  
+SQLALCHEMY_TRACK_MODIFICATIONS  
 
 ###### Have fun and Enjoy!
