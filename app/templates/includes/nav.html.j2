@@ -1,31 +1,33 @@
     <nav class="navbar navbar-expand-lg bg-light" style="opacity: 0.9; width: 40%">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{{url_for('home')}}"><img class="main-con" src="https://res.cloudinary.com/dxfkurrkj/image/upload/v1659396047/pokeball_rvsnvg.jpg"</a>
+        <a class="navbar-brand" href="{{url_for('main.home')}}"><img class="main-con" src="https://res.cloudinary.com/dxfkurrkj/image/upload/v1659396047/pokeball_rvsnvg.jpg"</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
         {% if current_user.is_anonymous %}
-                <a class="nav-link" href="{{url_for('login')}}">Login</a>
-                <a class="nav-link" href="{{url_for('register')}}">Register</a>
-            <a class="nav-link" href="{{url_for('home')}}">Home</a>
+                <a class="nav-link" href="{{url_for('auth.login')}}">Login</a>
+                <a class="nav-link" href="{{url_for('auth.register')}}">Register</a>
+            <a class="nav-link" href="{{url_for('main.home')}}">Home</a>
             {% endif %}
                  {% if current_user.is_authenticated %}
         <ul class="navbar-nav ms-auto align-items-center" style= "margin-left: 10px;">
-            <a class="nav-link" href="{{url_for('pokemon')}}">Catch Pokemon</a>
+            <a class="nav-link" href="{{url_for('main.pokemon')}}">Catch Pokemon</a>
+            <a class="nav-link" href="{{url_for('main.my_team')}}">My Pokemon</a>
+            <a class="nav-link" href="{{url_for('main.show_users')}}">Trainers</a>
             <a href='#'>
                 <img src="{{current_user.get_icon_url()}}" style="height:50px; margin-right: 5px;">
             </a>
             <li class="nav-item" style="border-style: none;">
                 <div class="row">
                      <div class="col-12">
-                        <a href="{{url_for('edit_profile')}}">
+                        <a href="{{url_for('auth.edit_profile')}}">
                             <i class="bi bi-gear-fill"></i>
                         </a>
                       </div>
                       <div class="col-12">
-                         <a href="{{url_for('logout')}}">
+                         <a href="{{url_for('auth.logout')}}">
                              <i class="bi bi-box-arrow-right"></i>
                          </a>
                       </div>

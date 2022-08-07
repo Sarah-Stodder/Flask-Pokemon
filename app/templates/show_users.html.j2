@@ -1,0 +1,39 @@
+{% extends 'base.html.j2'%}
+{% block title %}
+Trainers
+{% endblock %}
+{%block css %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/team.css')}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Miltonian+Tattoo&display=swap" rel="stylesheet">
+{% endblock %}
+{% block content %}
+<h1 style="text-align:center; ">Trainers</h1>
+<h5> Select an oppoinent</h5>
+<hr>
+    <div class="container" id="main">
+        <div class="row justify-content-evenly row-cols-auto">
+        
+  {% for user in users %}
+        <div class="card mb-3" style="max-width: 700px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                <img src="{{user.get_icon_url()}}" class="img-fluid rounded-start" alt="avatar">
+                </div>
+                <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{user.first_name}} {{user.last_name}}</h5>
+                    <p class="user card-text">Wins: {{user.win}}</p>
+                    <p class="user card-text">Losses: {{user.lose}}</p>
+                    
+                  <a href="{{url_for('main.view_user_team', id=user.id)}}" class="btn btn-warning">View Trainer</a>
+                </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+    
+
+{% endblock %}

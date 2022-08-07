@@ -1,0 +1,44 @@
+{% extends 'base.html.j2' %}
+{% block title %}
+Catch Pokemon
+{% endblock %}
+
+{%block css %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/pokemon.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='css/catch.css')}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Miltonian+Tattoo&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+      <h1>Capture Your Team!</h1>
+      <form action="{{url_for('main.pokemon')}}" method="POST">
+      {{form.hidden_tag()}}
+      <div class="mb-3">
+          {{form.pokemon_name.label(class="form-label")}}
+          {{form.pokemon_name(class="form-control", style= "width:30%;")}}
+          {% for error in form.pokemon_name.errors%}
+              <p>{{error}}</p>
+           {% endfor %}
+        </div>
+        <div>
+        {{form.submit(class="btn btn-primary")}}<br>
+         <p>{{error}}</p>
+       </div>
+      </form>
+      <div class="mb-3">
+    
+   
+                       
+    {% if pokemon %}
+                          <a href="{{url_for('main.catch_poke', id=pokemon.poke_id)}}" class="btn btn-success">Catch?</a>
+                      
+                             
+                           
+      </div>
+   {% include './includes/pokemon.html.j2' %}
+     
+</div>
+{% endif %}
+{% endblock %}

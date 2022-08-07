@@ -10,4 +10,6 @@
 body{
     background-image: url("https://res.cloudinary.com/dxfkurrkj/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1659396594/background_s6kbys.png");
     object-fit: cover;
+    max-height: 100vh;
+   
 }

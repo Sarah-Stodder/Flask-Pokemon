@@ -4,24 +4,39 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
 
-# initializing
-app = Flask(__name__)
-app.config.from_object(Config)
 
-
-
-#registering plug ins
 #init for database managment
-db = SQLAlchemy(app)
-migrate = Migrate(app,db)
+db = SQLAlchemy()
+migrate = Migrate()
 
 #login
 
-login = LoginManager(app)
+login = LoginManager()
+
+# moment= Moment()
 
 
-#configure some settings
-login.login_view = 'login'
-login.login_message = 'Log In first!'
-login.login_message_category = 'warning'
-from app import routes, models
+
+
+def create_app(config_class=Config):
+    app = Flask(__name__)
+    app.config.from_object(Config)
+
+    db.init_app(app)
+    migrate.init_app(app, db)
+    login.init_app(app)
+   # moment.init_app(app)
+
+    #configure some settings
+    login.login_view = 'auth.login'
+    login.login_message = 'Log yourself in to play!'
+    login.login_message_category = 'warning'
+
+    from .blueprints.auth import bp as auth_bp
+    app.register_blueprint(auth_bp)
+    from .blueprints.main import bp as main_bp
+    app.register_blueprint(main_bp)
+    return app
+
+
+from app import models

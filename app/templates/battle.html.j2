@@ -1,0 +1,113 @@
+{% extends "base.html.j2" %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/battle.css')}}">
+{% endblock %}
+
+{% block title %}
+Battle!
+{% endblock %}
+
+{% block content %}
+
+<h1 style="text-align:center; color: white;">Battle</h1>
+<hr>
+<div class="row justify-content-evenly">
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="true" aria-controls="user winner op">Attack</button>
+        
+
+
+        <div class="head">
+            <div class="row justify-content">
+                <div id="user">
+                    <h2>{{current_user.first_name.title()}} (You)</h2>
+                    <img src="{{current_user.get_icon_url()}}" class="icons img-fluid" alt="User avatar.">
+                </div>
+            </div>
+            <div class="row">
+                <img class="vs" src="https://res.cloudinary.com/dxfkurrkj/image/upload/v1659846101/hehehe_rki1hw.png">
+            </div>
+            <div class="row justify-content-end">
+                <div class="opp">
+                    <h2>{{user.first_name.title()}} (Opponent)</h2>
+                    <img src="{{user.get_icon_url()}}" class="icons img-fluid" alt="User avatar.">
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="col-md-3">
+        <div class="multi-collapse collapse" id="user" style="">
+        
+            <table class="user_team">
+                <thead>
+                    <tr>
+                        <th colspan="3">Your Team</th>
+                    </tr>
+                </thead>
+                {% for pokemon in current_user.pokemon %}
+                <tbody>
+                    <tr>
+                        <th>{{pokemon.poke_name.title()}}</th>
+                    </tr>
+                    <tr>
+                        <td rowspan="3"><img src="{{pokemon.photo}}" class="img-fluid"></td>
+                        <td>HP:</td>
+                        <td>{{pokemon.hp_base}}</td>
+                    </tr>
+                    <tr>
+                        <td>Attack:</td>
+                        <td>{{pokemon.attack_base}}</td>
+                    </tr>
+                    <tr>
+                        <td>Defense:</td>
+                        <td>{{pokemon.defense_stat}}</td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+        <div class="col-md-6">
+             <div class="multi-collapse collapse" id="winner" style="">
+                <h1>Winner:</h1>
+                <h3>{{winner.first_name}}</h3>
+                <img src="{{winner.get_icon_url()}}" class="icons img-fluid" alt="User avatar.">
+
+            </div>
+            </div>
+        <div class="col-md-3">
+
+        <div class="multi-collapse collapse" id="op" style="">
+            <table class="op_team">
+                <thead>
+                    <tr>
+                        <th colspan="3">Opponent's team</th>
+                    </tr>
+                </thead>
+                {% for pokemon in op_team %}
+                <tbody>
+                    <tr>
+                        <th>{{pokemon.poke_name.title()}}</th>
+                    </tr>
+                    <tr>
+                        <td rowspan="3"><img src="{{pokemon.photo}}" class="img-fluid"></td>
+                        <td>HP:</td>
+                        <td>{{pokemon.hp_base}}</td>
+                    </tr>
+                    <tr>
+                        <td>Attack:</td>
+                        <td>{{pokemon.attack_base}}</td>
+                    </tr>
+                    <tr>
+                        <td>Defense:</td>
+                        <td>{{pokemon.defense_stat}}</td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
+      
+    
+</div>
+{% endblock %}

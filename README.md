@@ -1,9 +1,7 @@
 # Pokemon Flask Application
 
 ## Description
-This application is still  a work in progress, this is the first update to the application
-Currently you can "catch"(more of just searching) pokemon.
-The welcome page I kept simple for now...
+Battle your friends! Create an account and add pokemon to your team!
 
 
 
@@ -16,4 +14,4 @@ SECRET_KEY
 SQLALCHEMY_DATABASE_URI  
 SQLALCHEMY_TRACK_MODIFICATIONS  
 
-###### Have fun and Enjoy!
+#### Have fun and Enjoy!

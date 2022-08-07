@@ -1,16 +1,13 @@
-from email import message
-from uuid import RFC_4122
+
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, RadioField
 from wtforms.validators import DataRequired, Email, EqualTo, ValidationError
-from app import app
-from .models import User
+
+from ...models import User
 import random
 from jinja2.utils import markupsafe
 
-class CatchPokemon(FlaskForm):
-    pokemon_name = StringField("A Wild Pokemon Appears! Whats it's name?", validators=[DataRequired()])
-    submit = SubmitField('Capture!')
+
 
 
 
