@@ -4,7 +4,7 @@ from .forms import  Find_pokemon
 from app.models import  Pokemon,  User
 from flask_login import login_required, current_user
 from . import bp as main
-
+from random import randint
 
 @main.route('/', methods=['GET'])
 def home():
@@ -98,7 +98,7 @@ def view_user_team(id):
 @main.route('/battle/<int:id>')
 @login_required
 def battle(id):  
-    
+    ran = randint(100,600)
     user =User.query.get(id) 
     op_team = user.pokemon
     cur_team = current_user.pokemon
@@ -108,10 +108,12 @@ def battle(id):
         op_total += op.hp_base
         op_total += op.attack_base
         op_total += op.defense_stat
+        op_team += ran
     for cur in cur_team:
         cur_total += cur.hp_base
         cur_total += cur.attack_base
         cur_total += cur.defense_stat
+        cur_total += ran
     if op_total < cur_total:
        winner = current_user
        print(op_total)
