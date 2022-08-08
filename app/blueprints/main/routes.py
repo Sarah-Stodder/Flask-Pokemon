@@ -108,7 +108,7 @@ def battle(id):
         op_total += op.hp_base
         op_total += op.attack_base
         op_total += op.defense_stat
-        op_team += ran
+        op_total += ran
     for cur in cur_team:
         cur_total += cur.hp_base
         cur_total += cur.attack_base
