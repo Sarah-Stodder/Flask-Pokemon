@@ -4,6 +4,9 @@
 Battle your friends! Create an account and add pokemon to your team!
 
 
+## Live Site
+<link>https://pokemon-flask.glitch.me/</link>
+
 
 ### Executing program
 To run this program you need to downlaod all of the requirements, which can be found in the requirments.txt document.
